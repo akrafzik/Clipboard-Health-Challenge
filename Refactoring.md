@@ -8,4 +8,10 @@ You've been asked to refactor the function `deterministicPartitionKey` in [`dpk.
 
 You will be graded on the exhaustiveness and quality of your unit tests, the depth of your refactor, and the level of insight into your thought process provided by the written explanation.
 
-## Your Explanation Here
+Code refactoring:
+
+I think that the code was really hard to understand with many if and else and duplicated code, so I separated the function into 3 steps.
+
+1. There is an event? Validating first is we'll process something is always better. No need to process something that we don't have the required information about.
+2. Who is the candidate? There are 2 possibilities, partitionKey, and the whole event. For each case, there are different formatting rules.
+3. When to apply the max partition logic. Based on partition key size or if came from event, we need to create a hash from candidate.
